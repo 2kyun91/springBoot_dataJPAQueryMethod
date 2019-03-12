@@ -3,6 +3,7 @@ package com.example.persistence;
 import java.util.Collection;
 import java.util.List;
 
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
 
@@ -46,4 +47,10 @@ public interface BoardRepository extends CrudRepository<Board, Long>{
 	
 	// 페이징 처리, 정렬 조건
 	public List<Board> findByBnoGreaterThanOrderByBnoDesc(Long bno, Pageable pageable);
+	
+	// 페이징 처리 조건(정렬은 위와 같이 쿼리에 포함시키지 않고 기동 메소드에서 파라미터로 전달)
+	public List<Board> findByBnoGreaterThan(Long bno, Pageable pageable);
+	
+	// 결과 데이터가 여러 개인 경우 List<T> 타입을 이용하기도 하지만 Page<T> 타입을 이용하면 단순 데이터 외의 웹에서 필요한 여러 데이터를 리턴한다.(총 페이지, 총 개수, 페이지 사이즈 등)
+	public Page<Board> findByBnoGreaterThanOrderByTitleDesc(Long bno, Pageable pageable);
 }
