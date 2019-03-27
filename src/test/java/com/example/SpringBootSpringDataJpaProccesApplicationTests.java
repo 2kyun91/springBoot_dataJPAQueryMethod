@@ -13,7 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.example.dao.Board;
+import com.example.dto.Board;
 import com.example.persistence.BoardRepository;
 
 @RunWith(SpringRunner.class)
@@ -100,5 +100,5 @@ public class SpringBootSpringDataJpaProccesApplicationTests {
 		
 		list.forEach(board -> System.out.println(board));
 	}
-	
+
 }

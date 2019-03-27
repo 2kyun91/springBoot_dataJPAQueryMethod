@@ -5,9 +5,10 @@ import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-import com.example.dao.Board;
+import com.example.dto.Board;
 
 /*
  * spring data JPA는 메소드의 이름으로 원하는 질의를 실행할 수 있다.
@@ -53,4 +54,5 @@ public interface BoardRepository extends CrudRepository<Board, Long>{
 	
 	// 결과 데이터가 여러 개인 경우 List<T> 타입을 이용하기도 하지만 Page<T> 타입을 이용하면 단순 데이터 외의 웹에서 필요한 여러 데이터를 리턴한다.(총 페이지, 총 개수, 페이지 사이즈 등)
 	public Page<Board> findByBnoGreaterThanOrderByTitleDesc(Long bno, Pageable pageable);
+	
 }
